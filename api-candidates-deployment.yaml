@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: candidates-api
+  labels:
+    app: candidates-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: candidates-api
+  template:
+    metadata:
+      labels:
+        app: candidates-api
+    spec:
+      containers:
+      - image: docker.io/blueboltsoftware/web_scraper:latest
+        name: candidates-api
